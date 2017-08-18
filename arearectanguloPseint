@@ -1,0 +1,8 @@
+Proceso arearectangulo
+	Escribir "Ingresar base";
+	Leer base;
+	Escribir "Ingresar altura";
+	Leer altura;
+	area<-base*altura;
+	Escribir "El area es:",area;
+FinProceso
