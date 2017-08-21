@@ -1,1 +1,7 @@
+Algoritmo himno
+	Escribir "Bolivianos: el hado propicio";
+	Escribir "Coronó nuestros votos y anhelos";
+	Escribir "es ya libre, ya libre este suelo";
+	Escribir "Ya cesó su servil condición";	
+FinAlgoritmo
 
