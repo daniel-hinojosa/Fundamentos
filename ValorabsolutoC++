@@ -1,0 +1,20 @@
+// valorabsoluto.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+using namespace std;
+
+void main ()
+{
+	int a,x;
+	cout<< "Ingrese el valor:";
+	cin>> a;
+	if (a>0)
+		x=a;
+	else 
+		x=-a;
+	cout<< "El valor avsouluto de:"<<a<<" es "<<x;
+	getch ();
+}
