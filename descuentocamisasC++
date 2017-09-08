@@ -1,0 +1,25 @@
+// descuentocamisas.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+
+using namespace std;
+
+void main ()
+{
+ float p, cant, d, x;
+ cout<< "Ingrese el precio de las camisas: ";
+ cin>> p;
+ cout<< "Ingrese la cantidad de camisas: ";
+ cin>> cant;
+ if (cant>=3)
+ {
+	 d=0.20;
+ }else{ 
+	 d=0.10;}
+ x= p*cant-p*(1-d);
+ cout<< "El costo es: "<<x<<endl;
+ getch ();
+}
