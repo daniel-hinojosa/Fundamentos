@@ -1,0 +1,28 @@
+// presupuestohospital.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+
+using namespace std;
+
+void main ()
+{
+ float M, mater, trau, ped;
+ cout<< "Ingrese el presupuesto";
+ cin>> M;
+ if (M<=2000000)
+ {
+	 mater= M*0.30;
+	 trau= M*0.40;
+	 ped=  M*0.30;
+ }else{ 
+	 mater= M*0.25;
+	 trau= M*0.35;
+	 ped=  M*0.25;}
+ cout<< "Presupuesto para maternidad: "<<mater<<endl;
+ cout<< "Presupuesto para traumatología: "<<trau<<endl;
+ cout<< "Presupuesto para pediatria: "<<ped<<endl;
+ getch();
+}
