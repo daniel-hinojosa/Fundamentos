@@ -1,0 +1,62 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+
+using namespace std;
+
+int Menor(int A, int B, int C);
+int absoluto(int X);
+int main ()
+{
+	int b, A, B, C, X, opcion;
+	do {
+		cout << "1. Imprimir HOLA"<<endl;
+		cout << "2. Sacar el menor de A, B y C enteros"<< endl;
+		cout << "3. Obtener el valor absoluto"<< endl;
+		cout << "4 . Fin"<< endl;
+		cout << "Ingrese la orden: ";
+		cin >> opcion;
+	    switch (opcion){
+            case 1: cout << "HOLA";break;
+			case 2:
+				cout << "A: ";
+			    cin >> A;
+				cout << "B: ";
+				cin >> B;
+				cout << "C: ";
+				cin >> C;
+				b = Menor(A,B,C);
+				cout << "Valor menor: "<< b <<endl;break;
+			case 3:
+				cout << "Valor: ";
+				cin >> X;
+				b = absoluto(X);
+				cout << "El valor absoluto es: "<< b<<endl;break;
+			case 4:
+				cout << "chao"<<endl; break;
+			default: cout << "Orden invalida";
+		}
+	}while (opcion != 4);
+	getch();
+}
+
+int Menor(int A, int B, int C)
+{
+	int b;
+	if ( A < B)
+	    b = A;
+	else 
+		b = B;
+	if (B < C)
+		b = B;
+	else 
+	    b = C;
+	return b;
+} 
+
+int absoluto(int X)
+{
+   if (X<0)
+	   X = X * -1;
+   return X;
+}
