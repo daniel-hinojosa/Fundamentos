@@ -4,6 +4,7 @@
 
 using namespace std;
 
+void hola();
 int Menor(int A, int B, int C);
 int absoluto(int X);
 int main ()
@@ -17,7 +18,7 @@ int main ()
 		cout << "Ingrese la orden: ";
 		cin >> opcion;
 	    switch (opcion){
-            case 1: cout << "HOLA";break;
+            case 1: hola();break;
 			case 2:
 				cout << "A: ";
 			    cin >> A;
@@ -40,6 +41,10 @@ int main ()
 	getch();
 }
 
+void hola(){
+	cout << "HOLA"<<endl; 
+}
+
 int Menor(int A, int B, int C)
 {
 	int b;
@@ -60,3 +65,4 @@ int absoluto(int X)
 	   X = X * -1;
    return X;
 }
+
