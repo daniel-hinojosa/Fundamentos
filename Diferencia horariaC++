@@ -1,0 +1,54 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+
+using namespace std;
+
+void main()
+{
+	int h1, h2, hd, m1, m2, md, s1, s2, sd, hor1, hor2, hord;
+	bool flag;
+	do
+	{
+		flag = true;
+		cout << "Ingrese el primer horario" << endl;
+		cout << "Hora: ";
+		cin >> h1;
+		cout << "Minutos: ";
+		cin >> m1;
+		cout << "Segundos: ";
+		cin >> s1;
+		if (h1 > 23 || m1 > 59 || s1 > 59)
+		{
+			cout << "Dato invalido, por favor digite de nuevo" << endl;
+			flag = false;
+		}
+	} while (flag == false);
+	do
+	{
+		flag = true;
+		cout << "Ingrese el segundo horario" << endl;
+		cout << "Hora: ";
+		cin >> h2;
+		cout << "Minutos: ";
+		cin >> m2;
+		cout << "Segundos: ";
+		cin >> s2;
+		if (h2 > 23 || m2 > 59 || s2 > 59)
+		{
+			cout << "Dato invalido, por favor digite de nuevo" << endl;
+			flag = false;
+		}
+	} while (flag == false);
+	hor1 = h1 * 3600 + m1 * 60 + s1;
+	hor2 = h2 * 3600 + m2 * 60 + s2;
+	if (hor1 < hor2)
+		hord = hor2 - hor1;
+	else
+		hord = hor1 - hor2;
+	hd = hord / 3600;
+	md = (hord - (hd * 3600)) / 60;
+	sd = hord - (hd * 3600) - (md * 60);
+	cout << "La diferencia horaria es:   " << hd << ":" << md << ":" << sd << endl;
+	_getch();
+}
