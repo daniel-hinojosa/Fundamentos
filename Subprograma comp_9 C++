@@ -1,0 +1,29 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+
+using namespace std;
+int comp_9(int a);
+
+void main()
+{
+	int a;
+	cout << "Ingrese el numero: ";
+	cin >> a;
+	a = comp_9(a);
+	cout << "Su complemento a 9 es: " << a << endl;
+	_getch();
+}
+
+int comp_9(int a)
+{
+	int i = 1, k = 1, j, s = 0;
+ 	while (a > 0)
+	{
+		j = 9-(a % 10);
+		a = a / 10;
+		s = s + (j*k);
+		k = k * 10;
+	}
+	return s;
+}
