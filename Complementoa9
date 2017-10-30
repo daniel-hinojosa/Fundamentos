@@ -1,0 +1,31 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+
+using namespace std;
+
+void main()
+{
+	int a, r, i, k, s, j;
+	cout << "Ingrese el numero: ";
+	cin >> a;
+	r = 1;
+	i = a;
+	s = 0;
+	while (i > 9){
+		i = i / 10;
+		r = r * 10;
+    }
+	j = 1;
+	while (j <= r)
+	{
+		k = a % 10;
+		a = (a - k) / 10;
+		k = j * (9 - k);
+		s = s + k;
+		j = j * 10;	
+	}
+	cout << "El numero invertido es: " << s << endl;
+	_getch();
+}
+
