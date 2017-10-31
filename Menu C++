@@ -1,0 +1,61 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+
+using namespace std;
+
+void main() {
+	do
+	{
+		int a, T = 0, C;
+		cout << "   ITEM  "; << endl;
+		cout << "1. Hamburgeusa                      Bs 25" << endl;
+		cout << "2. Hamburguesa con queso            Bs 28" << endl;
+		cout << "3. Papas fritas                     Bs 10" << endl;
+		cout << "4. Soda                             Bs  7" << endl;
+		cout << "5. Salir" << endl;
+		cout << endl;
+		cout << "Elija su pedido: ";
+		cin >> a;
+		switch (a)
+		{
+		case 1:
+			cout << "Cantidad: ";
+			cin >> C;
+			T = T + (C * 25);
+			cout << "Subtotal: Bs " << T << endl;
+			cout << endl;
+			break;
+		case 2:
+			cout << "Cantidad: ";
+			cin >> C;
+			T = T + (C * 28);
+			cout << "Subtotal: Bs " << T << endl;
+			cout << endl;
+			break;
+		case 3:
+			cout << "Cantidad: ";
+			cin >> C;
+			T = T + (C * 10);
+			cout << "Subtotal: Bs " << T << endl;
+			cout << endl;
+			break;
+		case 4:
+			cout << "Cantidad: ";
+			cin >> C;
+			T = T + (C * 7);
+			cout << "Subtotal: Bs " << T << endl;
+			cout << endl;
+			break;
+		case 5:
+			cout << "El total es: Bs " << T << endl;
+			break;
+		default:
+			cout << "Orden invalida" << endl;
+			cout << endl;
+			break;
+		}
+	} while (a != 5);
+	_getch();
+}
+
