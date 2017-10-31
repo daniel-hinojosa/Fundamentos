@@ -1,68 +1,69 @@
 #include "stdafx.h"
 #include <iostream>
 #include "conio.h"
+#include "stdlib.h"
 
 using namespace std;
 
-void hola();
-int Menor(int A, int B, int C);
-int absoluto(int X);
-int main ()
-{
-	int b, A, B, C, X, opcion;
-	do {
-		cout << "1. Imprimir HOLA"<<endl;
-		cout << "2. Sacar el menor de A, B y C enteros"<< endl;
-		cout << "3. Obtener el valor absoluto"<< endl;
-		cout << "4 . Fin"<< endl;
-		cout << "Ingrese la orden: ";
+void main() {
+	int opcion, T = 0, C;
+	do
+	{
+		cout << "   ITEM  " << endl;
+		cout << "1. Hamburgeusa                      Bs 25" << endl;
+		cout << "2. Hamburguesa con queso            Bs 28" << endl;
+		cout << "3. Papas fritas                     Bs 10" << endl;
+		cout << "4. Soda                             Bs  7" << endl;
+		cout << "5. Salir" << endl;
+		cout << endl;
+		cout << "Elija su pedido: ";
 		cin >> opcion;
-	    switch (opcion){
-            case 1: hola();break;
-			case 2:
-				cout << "A: ";
-			    cin >> A;
-				cout << "B: ";
-				cin >> B;
-				cout << "C: ";
-				cin >> C;
-				b = Menor(A,B,C);
-				cout << "Valor menor: "<< b <<endl;break;
-			case 3:
-				cout << "Valor: ";
-				cin >> X;
-				b = absoluto(X);
-				cout << "El valor absoluto es: "<< b<<endl;break;
-			case 4:
-				cout << "chao"<<endl; break;
-			default: cout << "Orden invalida";
+		switch (opcion)
+		{
+		case 1:
+			cout << "Cantidad: ";
+			cin >> C;
+			T = T + (C * 25);
+			system("cls");
+			cout << "Subtotal: Bs " << T << endl;
+			cout << endl;
+			break;
+		case 2:
+			cout << "Cantidad: ";
+			cin >> C;
+			T = T + (C * 28);
+			system("cls");
+			cout << "Subtotal: Bs " << T << endl;
+			cout << endl;
+			break;
+		case 3:
+			cout << "Cantidad: ";
+			cin >> C;
+			T = T + (C * 10);
+			system("cls");
+			cout << "Subtotal: Bs " << T << endl;
+			cout << endl;
+			break;
+		case 4:
+			cout << "Cantidad: ";
+			cin >> C;
+			T = T + (C * 7);
+			system("cls");
+			cout << "Subtotal: Bs " << T << endl;
+			cout << endl;
+			break;
+		case 5:
+			cout << "El total es: Bs " << T << endl;
+			break;
+		default:
+			system("cls");
+			cout << "Orden invalida" << endl;
+			cout << endl;
+			break;
 		}
-	}while (opcion != 4);
-	getch();
+	}while(opcion!=5);
+	_getch();
 }
 
-void hola(){
-	cout << "HOLA"<<endl; 
-}
 
-int Menor(int A, int B, int C)
-{
-	int b;
-	if ( A < B)
-	    b = A;
-	else 
-		b = B;
-	if (B < C)
-		b = B;
-	else 
-	    b = C;
-	return b;
-} 
-
-int absoluto(int X)
-{
-   if (X<0)
-	   X = X * -1;
-   return X;
-}
 
