@@ -1,0 +1,46 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "math.h"
+
+using namespace std;
+int binario_dec(int n);
+
+void main()
+{
+	int n, k, a, X;
+	bool band = true;
+	do
+	{
+		cout << "Ingrese un numero en binario: ";
+		cin >> n;
+		a = n;
+		while (a > 0)
+		{
+			k = a % 10;
+			a = a / 10;
+			if (k >= 2)
+			{
+				band = false;
+				cout << "El numero no esta en base binaria" << endl;
+				break;
+			}
+		}
+	} while (band == false);
+	X = binario_dec(n);
+	cout << "Base decimal: " << X << endl;
+	_getch();
+}
+
+int binario_dec(int n)
+{
+	float k, S=0, i;
+	for (i = 0; n > 0; i++)
+	{
+		k = n % 10;
+		n = n / 10;
+		k = k * (pow(2, i));
+		S = S + k;
+	}
+	return S;
+}
