@@ -1,0 +1,34 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+
+using namespace std;
+void cont_pares( int n);
+
+void main()
+{
+	int n;
+	cout << "Ingrese el numero: ";
+	cin >> n;
+	cont_pares(n);
+	_getch();
+}
+
+
+void cont_pares(int n)
+{
+	int i = 0, a;
+	cout << "Los digitos pares son: ( ";
+	while( n > 0 )
+	{
+		a = n % 10;
+		n = n / 10;
+		if (a % 2 == 0)
+		{
+			cout << a<< ", ";
+			i++;
+		}
+	}
+	cout <<")" <<endl;
+	cout << "El numero tiene " << i << " digitos pares";
+}
