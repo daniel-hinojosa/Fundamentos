@@ -1,0 +1,32 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+
+using namespace std;
+
+void main()
+{
+	int N, a, r, j=1, pos;
+	cout << "Ingrese el numero: ";
+	cin >> N;
+	r = N;
+	while (r > 0)
+	{
+		r = r / 10;
+		j++;
+	}
+	int mayor = 0;
+	for (int i =1; N > 0; i++)
+	{
+		a = N % 10;
+		N = N / 10;
+		if (a > mayor)
+		{
+			mayor = a;
+			pos = i;
+		}
+	}
+	cout << "El digito mayor es " << mayor << endl;
+	cout << "En la posicion " << j - pos << endl;
+	_getch();
+}
