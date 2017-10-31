@@ -1,68 +1,74 @@
 #include "stdafx.h"
 #include <iostream>
 #include "conio.h"
-#include "stdlib.h"
 
 using namespace std;
+void hola();
+int menor(int A, int B, int C);
+int absoluto(float X);
 
-void main() {
-	int opcion, T = 0, C;
-	do
-	{
-		cout << "   ITEM  " << endl;
-		cout << "1. Hamburgeusa                      Bs 25" << endl;
-		cout << "2. Hamburguesa con queso            Bs 28" << endl;
-		cout << "3. Papas fritas                     Bs 10" << endl;
-		cout << "4. Soda                             Bs  7" << endl;
-		cout << "5. Salir" << endl;
+void main()
+{
+	int opcion, A, B, C;
+	float X;
+	do {
+		cout << "1. Imprimir Hola" << endl;
+		cout << "2. Menor de tres numeros A, B y C" << endl;
+		cout << "3. Valor absoluto" << endl;
+		cout << "4. Salir" << endl;
 		cout << endl;
-		cout << "Elija su pedido: ";
+		cout << "Elija la opcion" << endl;
 		cin >> opcion;
 		switch (opcion)
 		{
 		case 1:
-			cout << "Cantidad: ";
-			cin >> C;
-			T = T + (C * 25);
-			system("cls");
-			cout << "Subtotal: Bs " << T << endl;
-			cout << endl;
-			break;
+			hola(); break;
 		case 2:
-			cout << "Cantidad: ";
+			cout << "Ingrese los numeros" << endl;
+			cout << "A:";
+			cin >> A;
+			cout << "B: ";
+			cin >> B;
+			cout << "C: ";
 			cin >> C;
-			T = T + (C * 28);
-			system("cls");
-			cout << "Subtotal: Bs " << T << endl;
-			cout << endl;
-			break;
+			A = menor(A, B, C);
+			cout << "El numero menor es: " << A << endl; break;
 		case 3:
-			cout << "Cantidad: ";
-			cin >> C;
-			T = T + (C * 10);
-			system("cls");
-			cout << "Subtotal: Bs " << T << endl;
-			cout << endl;
-			break;
-		case 4:
-			cout << "Cantidad: ";
-			cin >> C;
-			T = T + (C * 7);
-			system("cls");
-			cout << "Subtotal: Bs " << T << endl;
-			cout << endl;
-			break;
-		case 5:
-			cout << "El total es: Bs " << T << endl;
+			cout << "Ingrese el valor:";
+			cin >> X;
+			X = absoluto(X);
+			cout << "El valor absoluto es: " << X << endl;
 			break;
 		default:
-			system("cls");
-			cout << "Orden invalida" << endl;
-			cout << endl;
+			cout << "Opcion invalida" << endl;
 			break;
 		}
-	}while(opcion!=5);
+	} while (opcion != 4);
 	_getch();
+}
+
+void hola()
+{
+	cout << "Hola" << endl;
+}
+
+int menor(int A, int B, int C)
+{
+	int menor;
+	if (A < B)
+		menor = A;
+	else
+		menor = B;
+	if (C < menor)
+		menor = C;
+	return menor;
+}
+
+int absoluto(float X)
+{
+	if (X < 0)
+		X = X*-1;
+	return X;
 }
 
 
