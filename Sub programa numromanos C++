@@ -1,0 +1,75 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+
+using namespace std;
+void num_romano(int n);
+
+void main()
+{
+	int n; 
+	cout << "Ingrese el numero: ";
+	cin >> n;
+	num_romano(n);
+	getch();
+}
+
+void num_romano(int n)
+{
+	int i =1, a, r;
+	while (i <= n)
+		i = 1 *10;
+	do
+	{
+		if ( n = 0)
+			r = 8;
+		if ( n >= 1)
+			r = 7;
+		if ( n > 5)
+			r = 6;
+		if ( n > 10)
+			r = 5;
+		if ( n > 50)
+			r = 4;
+		if ( n > 100)
+			r = 3;
+		if ( n > 500)
+			r = 2;
+		if ( n > 1000)
+			r = 1;
+		a = n/i;
+		i = i/10;
+		switch (r)
+		{ 
+		case 1: while (a > 0)
+				{ 
+					cout << "M";
+					a = a -1;
+				}
+				break;
+		case 2: if (a == 9)
+					cout << "CM";
+				else{
+					cout << "D";
+					while (a > 0){
+						cout << "M";
+						a = a -1;
+					}
+				}
+		case 3: if (a == 4)
+					cout << "CD";
+				else{
+				while (a > 0)
+				{ 
+					cout << "C";
+					a = a -1;
+				}
+				}
+		case 4: if (a== 9)
+					cout << "XC";
+				else{
+					cout << "D";
+
+				}
+	}while (n > 0);
+}
