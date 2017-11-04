@@ -1,117 +1,153 @@
 #include "stdafx.h"
 #include <iostream>
 #include "conio.h"
+#include "stdlib.h"
 
 using namespace std;
 
 void main()
 {
 	int n;
-	cout << "Ingrese el numero: ";
-	cin >> n;
-	int i = 1, a, r;
-	while (i <= n)
-		i = i * 10;
-	do
+	do {
+		cout << "Ingrese el numero: ";
+		cin >> n;
+		if (n >= 4000000)
+			cout << "ingrese un numero menor de 4 millones" << endl;
+	} while (n >= 4000000);
+	int u, d, c, m, p = 0, um, dm, cm, mm, N;
+	N = n;
+	bool millar = false;
+	u = n % 10;
+	n = n / 10;
+	d = n % 10;
+	n = n / 10;
+	c = n % 10;
+	n = n / 10;
+	m = n % 10;
+	if (n> 3)
+		millar = true;
+	if (millar == true)
 	{
-		i = i / 10;
-		if (n == 0)
-			r = 8;
-		if (n >= 1)
-			r = 7;
-		if (n > 5)
-			r = 6;
-		if (n > 10)
-			r = 5;
-		if (n > 50)
-			r = 4;
-		if (n > 100)
-			r = 3;
-		if (n > 500)
-			r = 2;
-		if (n > 1000)
-			r = 1;
-		a = n / i;
-		n = n - (a*i);
-		switch (r)
+		um = n % 10;
+		n = n / 10;
+		dm = n % 10;
+		n = n / 10;
+		cm = n % 10;
+		mm = n / 10;
+		for (int i = 1; i < 3; i++)
 		{
-		case 1: while (a > 0)
-		{
-			cout << "M";
-			a = a - 1;
+			switch (mm)
+			{
+			case 1: cout << "M"; p = p + 1;  break;
+			case 2: cout << "MM"; p = p + 2; break;
+			case 3: cout << "MMM"; p = p + 3; break;
+			case 0: break;
+			}
+			switch (cm)
+			{
+			case 1: cout << "C"; p = p + 1; break;
+			case 2: cout << "CC"; p = p + 2; break;
+			case 3: cout << "CCC"; p = p + 3; break;
+			case 4: cout << "CD"; p = p + 2; break;
+			case 5: cout << "LD"; p = p + 1; break;
+			case 6: cout << "DC"; p = p + 2; break;
+			case 7: cout << "DCC"; p = p + 3; break;
+			case 8: cout << "DCCC"; p = p + 4; break;
+			case 9: cout << "CM"; p = p + 2; break;
+			case 0: break;
+			}
+			switch (dm)
+			{
+			case 1: cout << "X"; p = p + 1; break;
+			case 2: cout << "XX"; p = p + 2; break;
+			case 3: cout << "XXX"; p = p + 3; break;
+			case 4: cout << "XL"; p = p + 2; break;
+			case 5: cout << "L"; p = p + 1; break;
+			case 6: cout << "LX"; p = p + 2; break;
+			case 7: cout << "LXX"; p = p + 3; break;
+			case 8: cout << "LXXX"; p = p + 4; break;
+			case 9: cout << "XC"; p = p + 2; break;
+			case 0: break;
+			}
+			switch (um)
+			{
+			case 4: cout << "IV"; p = p + 2; break;
+			case 5: cout << "V"; p = p + 1; break;
+			case 6: cout << "VI"; p = p + 2; break;
+			case 7: cout << "VII"; p = p + 3; break;
+			case 8: cout << "VIII"; p = p + 4; break;
+			case 9: cout << "IX"; p = p + 1; break;
+			case 0: break;
+			}
+			if (i == 1) {
+				system("cls");
+				cout << "Ingrese el numero: " << N << endl;
+				switch (p) {
+				case 1:cout << "_"; break;
+				case 2:cout << "__"; break;
+				case 3:cout << "___"; break;
+				case 4:cout << "____"; break;
+				case 5:cout << "_____"; break;
+				case 6:cout << "______"; break;
+				case 7:cout << "_______"; break;
+				case 8:cout << "________"; break;
+				case 9:cout << "_________"; break;
+				case 10:cout << "__________"; break;
+				case 11:cout << "___________"; break;
+				case 12:cout << "____________"; break;
+				case 13:cout << "_____________"; break;
+				case 14:cout << "______________"; break;
+				case 15:cout << "_______________"; break;
+				}
+				cout << endl;
+			}
 		}
-				break;
-		case 2: if (a == 9)
-			cout << "CM";
-				else {
-					cout << "D";
-					while (a > 5) {
-						cout << "M";
-						a = a - 1;
-					}
-				}break;
-		case 3: if (a == 4)
-			cout << "CD";
-				else {
-					if (a == 5)
-						cout << "D";
-					else {
-						while (a > 0)
-						{
-							cout << "C";
-							a = a - 1;
-						}
-					}
-				}break;
-		case 4: if (a == 9)
-			cout << "XC";
-				else {
-					cout << "L";
-					while (a > 5)
-					{
-						cout << "X";
-						a = a - 1;
-					}
-				}break;
-		case 5: if (a == 4)
-			cout << "XL";
-				else {
-					if (a == 5)
-						cout << "L";
-					else {
-						while (a > 0)
-						{
-							cout << "X";
-							a = a - 1;
-						}
-					}
-				}break;
-		case 6: if (a == 9)
-			cout << "IX";
-				else {
-					cout << "V";
-					while (a > 5)
-					{
-						cout << "I";
-						a = a - 1;
-					}
-				}break;
-		case 7:if (a == 4)
-			cout << "IV";
-			   else {
-				   if (a == 5)
-					   cout << "V";
-				   else {
-					   while (a > 0)
-					   {
-						   cout << "I";
-						   a = a - 1;
-					   }
-				   }
-			   }break;
-		case 8: break;
-
-		}
-	} while (n > 0);
+	}
+	switch (m)
+	{
+	case 1: cout << "M"; break;
+	case 2: cout << "MM"; break;
+	case 3: cout << "MMM"; break;
+	default: break;
+	}
+	switch (c)
+	{
+	case 1: cout << "C"; break;
+	case 2: cout << "CC"; break;
+	case 3: cout << "CCC"; break;
+	case 4: cout << "CD"; break;
+	case 5: cout << "D"; break;
+	case 6: cout << "DC"; break;
+	case 7: cout << "DCC"; break;
+	case 8: cout << "DCCC"; break;
+	case 9: cout << "CM"; break;
+	case 0: break;
+	}
+	switch (d)
+	{
+	case 1: cout << "X"; break;
+	case 2: cout << "XX"; break;
+	case 3: cout << "XXX"; break;
+	case 4: cout << "XL"; break;
+	case 5: cout << "L"; break;
+	case 6: cout << "LX"; break;
+	case 7: cout << "LXX"; break;
+	case 8: cout << "LXXX"; break;
+	case 9: cout << "XC"; break;
+	case 0: break;
+	}
+	switch (u)
+	{
+	case 1: cout << "I"; break;
+	case 2: cout << "II"; break;
+	case 3: cout << "III"; break;
+	case 4: cout << "IV"; break;
+	case 5: cout << "V"; break;
+	case 6: cout << "VI"; break;
+	case 7: cout << "VII"; break;
+	case 8: cout << "VIII"; break;
+	case 9: cout << "IX"; break;
+	case 0: break;
+	}
 	_getch();
 }
