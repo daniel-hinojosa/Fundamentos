@@ -1,0 +1,147 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "stdlib.h"
+
+using namespace std;
+int dias_trans(int d1, int m1, int a1, int d2, int m2, int a2);
+int fecha_valida(int d, int m, int a);
+
+void main()
+{
+	int d1, d2, m1, m2, a1, a2, dias, f;
+	do {
+		cout << "Ingrese la primera fecha " << endl;
+		cout << "Dia: ";
+		cin >> d1;
+		cout << "mes: ";
+		cin >> m1;
+		cout << "año: ";
+		cin >> a1;
+		system("cls");
+		f = fecha_valida(d1, m1, a1);
+		if (f != 1)
+			cout << "La fecha ingresada es invalida" << endl;
+	} while (f != 1);
+	do {
+	cout << endl;
+	cout << "   Fecha 1  " << d1 << "/" << m1 << "/" << a1 << endl;
+	cout << "   Fecha 2  dd/mm/aa " << endl;
+	cout << endl;
+	cout << "Ingrese la segunda fecha " << endl;
+	cout << "Dia: ";
+	cin >> d2;
+	cout << "mes: ";
+	cin >> m2;
+	cout << "año: ";
+	cin >> a2;	
+	system("cls");
+	f = fecha_valida(d2, m2, a2);
+	if (f != 1)
+		cout << "La fecha ingresada es invalida" << endl;
+	} while (f != 1);
+	cout << endl;
+	cout << "   Fecha 1  " << d1 << "/" << m1 << "/" << a1 << endl;
+	cout << "   Fecha 2  " << d2 << "/" << m2 << "/" << a2 << endl;
+	cout << endl;
+	dias = dias_trans(d1, m1, a1, d2, m2, a2);
+	cout << "Dias transcurridos: " << dias << endl;
+	_getch();
+}
+
+int fecha_valida(int d, int m, int a)
+{
+	int validez;
+	bool frag = true;
+	switch (m)
+	{
+	case 1: if (d > 31)
+		frag = false; break;
+	case 2: if (a % 400 == 0 || (a % 4 == 0 && a % 100 != 0)) {
+		if (d > 29)
+			frag = false;
+	}
+			else {
+				if (d > 28)
+					frag = false;
+			} break;
+	case 3: if (d > 31)
+		frag = false; break;
+	case 4: if (d > 30)
+		frag = false; break;
+	case 5: if (d > 31)
+		frag = false; break;
+	case 6: if (d > 30)
+		frag = false; break;
+	case 7: if (d > 31)
+		frag = false; break;
+	case 8: if (d > 31)
+		frag = false; break;
+	case 9: if (d > 30)
+		frag = false; break;
+	case 10: if (d > 31)
+		frag = false; break;
+	case 11: if (d > 30)
+		frag = false; break;
+	case 12: if (d > 31)
+		frag = false; break;
+	default:
+		frag = false; break;
+	}
+	if (frag == true)
+		validez = 1;
+	else {
+		validez = 0;
+	}
+	return validez;
+}
+int dias_trans(int d1, int m1, int a1, int d2, int m2, int a2)
+{
+	int f1, f2, f, m, dfeb;
+	bool frag = true;
+	if (a1 % 400 == 0 || (a1 % 4 == 0 && a1 % 100 != 0))
+		dfeb = 29;
+	else
+		dfeb = 28;
+	switch (m1)
+	{
+	case 1: m = d1;
+	case 2: m = 31 + d1; break;
+	case 3: m = dfeb + 31 + d1;	break;
+	case 4: m = dfeb + 62 + d1;
+	case 5: m = dfeb + 92 + d1; break;
+	case 6: m = dfeb + 123 + d1; break;
+	case 7: m = dfeb + 153 + d1; break;
+	case 8: m = dfeb + 184 + d1; break;
+	case 9: m = dfeb + 215 + d1; break;
+	case 10: m = dfeb + 245 + d1; break;
+	case 11: m = dfeb + 276 + d1; break;
+	case 12: m = dfeb + 306 + d1; break;
+	}
+	f1 = m + ((a1-1) * 365)+ ((a1-1)/4);
+	if (a2 % 400 == 0 || (a2 % 4 == 0 && a2 % 100 != 0))
+		dfeb = 29;
+	else
+		dfeb = 28;
+	switch (m2)
+	{
+	case 1: m = d2;
+	case 2: m = 31 + d2; break;
+	case 3: m = dfeb + 31 + d2;	break;
+	case 4: m = dfeb + 62 + d2;
+	case 5: m = dfeb + 92 + d2; break;
+	case 6: m = dfeb + 123 + d2; break;
+	case 7: m = dfeb + 153 + d2; break;
+	case 8: m = dfeb + 184 + d2; break;
+	case 9: m = dfeb + 215 + d2; break;
+	case 10: m = dfeb + 245 + d2; break;
+	case 11: m = dfeb + 276 + d2; break;
+	case 12: m = dfeb + 306 + d2; break;
+	}
+	f2 = m + ((a2 - 1) * 365) + ((a2 - 1) / 4);
+	if (f2 > f1)
+		f = f2 - f1;
+	else
+		f = f1 - f2;
+	return f;
+}
