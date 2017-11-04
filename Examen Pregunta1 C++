@@ -1,0 +1,29 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+
+using namespace std;
+
+int num_divisible(int a, int b);
+
+void main()
+{
+	int a, b, m;
+	cout << "Ingrese el valor de a: ";
+	cin >> a;
+	cout << "Ingrese el valos de b: ";
+	cin >> b;
+	m = num_divisible(a, b);
+	cout << m << endl;
+	_getch();
+}
+
+int  num_divisible(int a, int b)
+{
+	int m;
+	if (a%b == 0)
+		m = 1;
+	else
+		m = 0;
+	return m;
+}
