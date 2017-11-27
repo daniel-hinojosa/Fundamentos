@@ -1,0 +1,44 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+
+using namespace std;
+int A[100];
+void cargar(int A[], int n);
+void difmayor(int A[], int n);
+void main()
+{
+	int t;
+	cout << "Ingrese el tama" << char(164) << "o del vector = ";
+	cin >> t;
+	cargar(A, t);
+	difmayor(A, t);
+	_getch();
+}
+
+
+void cargar(int A[], int n) 
+{
+	int i;
+	for (i = 0; i < n; i++)
+	{
+		cout << "A[" << i << "] = ";
+		cin >> A[i];
+	}
+}
+void difmayor(int A[], int n)
+{
+	int i, pos, mayor = 0, d;
+	for (i = 1; i < n; i++)
+	{
+		d = A[i - 1] - A[i];
+		if (d < 0)
+			d = d*-1;
+		if (d > mayor)
+		{
+			mayor = d;
+			pos = i;
+		}
+	}
+	cout << "La mayor diferencia de vectores consecutivos es " << mayor << " entre el vector A[" << pos - 1 << "] y A[" << pos << "]\n";
+}
