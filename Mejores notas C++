@@ -1,0 +1,55 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#define TAM 100
+
+using namespace std;
+int vector[TAM];
+int reg[TAM];
+void cargar(int vector[],int reg[], int tamanio);
+void top3(int vector[], int reg[], int tamanio);
+
+void main()
+{
+	int j, i, aux, aux2, n;
+	cout << "Ingrese el numero de alumnos: ";
+	cin >> n;
+	cargar(vector, reg, n);
+	top3(vector, reg, n);
+	cout << "Las mejores notas son: \n";
+	for (j = 0; j < 3; j++)
+	{
+		cout << reg[j] << "\t\t\t nota: "<<vector[j] <<endl;
+	}
+	_getch();
+}
+
+void cargar(int vector[], int reg[], int tamanio)
+{
+	for (int i = 0; i < tamanio; i++)
+	{
+		cout << "Numero de Registro :";
+		cin >> reg[i];
+		cout << "nota: ";
+		cin >> vector[i];
+	}
+}
+
+void top3(int vector[], int reg[], int tamanio)
+{
+	int i, aux, j, aux2;
+	for (i = 0; i<tamanio; i++)
+		{
+			for (j = 0; j<tamanio; j++)
+			{
+				if (vector[j] < vector[j+1]) {
+					aux = vector[j];
+					vector[j] = vector[j+1];
+					vector[j+1] = aux;
+					aux2 = reg[j];
+					reg[j] = reg[j + 1];
+					reg[j + 1] = aux2;
+				}
+			}
+		}
+}
