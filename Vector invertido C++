@@ -8,7 +8,7 @@ int vec[TAM];
 
 void main()
 {
-	int i, j= 0, rep=0, aux, n, k;
+	int i, j= 0, n;
 	cout << "Tama" << char(164) << "o del vector";
 	cin >> n;
 	cout << endl;
