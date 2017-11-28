@@ -1,0 +1,29 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#define TAM 100
+
+using namespace std;
+int vec[TAM];
+
+void main()
+{
+	int i, j= 0, rep=0, aux, n, k;
+	cout << "Tama" << char(164) << "o del vector";
+	cin >> n;
+	cout << endl;
+	for (i = 0; i< n; i++)
+	{
+		cout << "vec[" << i << "] = ";
+		cin >> vec[i];
+	}
+	i = i - 1;
+	cout << "El vector invertido es: \n";
+	while(i >= 0)
+	{
+		cout << "Vec[" << j << "] = " << vec[i] << endl;
+		j++;
+		i--;
+	}
+	_getch();
+}
