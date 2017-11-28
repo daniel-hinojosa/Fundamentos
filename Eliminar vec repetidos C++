@@ -1,0 +1,39 @@
+using namespace std;
+int vec[TAM];
+
+void main()
+{
+	int i, j, rep=0, aux, n, k;
+	cout << "Tama" << char(164) << "o del vector";
+	cin >> n;
+	cout << endl;
+	for (i = 0; i< n; i++)
+	{
+		cout << "vec[" << i << "] = ";
+		cin >> vec[i];
+	}
+	for (i = 0; i < n; i++)
+	{
+		for (j = i +1; j < n; j++)
+		{
+			if (vec[j] != 0)
+			{
+				if (vec[i] == vec[j])
+				{
+					rep = rep + 1;
+					vec[j] = 0;
+				}
+			}
+		}
+	}
+	system("cls");
+	if (rep > 0)
+		cout << "EL arreglo sin vectores repetidos es: \n";
+	else
+		cout << "No hubieron vectores repetidos\n";
+	for (i = 0; i < n; i++)
+	{
+		cout << "vec[" << i << "] = " << vec[i] << endl;
+	}
+	_getch();
+}
